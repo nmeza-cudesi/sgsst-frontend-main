@@ -1,0 +1,57 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+
+
+                <form class="form-horizontal p-t-20" [formGroup]="riesgoForm" (ngSubmit)="crearRiesgo()">
+
+
+                    <div class="form-group row">
+                        <label for="exampleInputuname3" class="col-sm-3 control-label">Nombre</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <input 
+                                    formControlName="usuario"
+                                    [(ngModel)]="usuario.uid"
+                                    class="form-control"
+                                    >
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="exampleInputEmail3" class="col-sm-3 control-label">Departamento</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <select class="form-control"
+                                        formControlName="departamento">
+                                    <option value="">Seleccione Departamento</option>
+                                    <option *ngFor="let departamento of departamentos"
+                                        [value]="departamento._id">
+                                        {{ departamento.nombre }}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label for="exampleInputEmail3" class="col-sm-3 control-label">Descripción</label>
+                        <textarea class="form-control" rows="5" cols="50" formControlName="descripcion"></textarea>
+                    </div>
+
+                    <div class="form-group row m-b-0">
+                        <div class="offset-sm-3 col-sm-9">
+                            <button type="submit" class="btn btn-success waves-effect waves-light">
+                                <i class="fa fa-save"></i>
+                                Crear
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>

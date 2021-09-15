@@ -1,0 +1,123 @@
+<div class="row animated fadeIn fast">
+
+    <div class="col-4">
+        <div class="card">
+            <div class="card-body">
+                <h3>Usuarios</h3>
+
+                <div class="alert alert-info animated fadeIn fast"
+                    *ngIf="usuarios.length === 0">
+                  <p class="mb-0">
+                      No hay usuario con ese término
+                  </p>
+                </div>
+
+                <div class="table-responsive"
+                    *ngIf="usuarios.length > 0">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Avatar</th>
+                                <th>Nombre</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let usuario of usuarios"
+                                class="animated fadeIn fast">
+                                <td>
+                                    <img [src]="usuario.img | imagen:'usuarios'" 
+                                         class="w75"/>
+                                </td>
+                                <td>{{ usuario.nombre }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-4">
+        <div class="card">
+            <div class="card-body">
+                <h3>Departamentos</h3>
+
+                <div class="alert alert-info animated fadeIn fast"
+                    *ngIf="departamentos.length === 0">
+                  <p class="mb-0">
+                      No hay Departamentos con ese término
+                  </p>
+                </div>
+
+                <div class="table-responsive"
+                    *ngIf="departamentos.length > 0">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Foto</th>
+                                <th>Nombre</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let departamento of departamentos"
+                                class="animated fadeIn fast">
+                                <td>
+                                    <img [src]="departamento.img | imagen:'departamentos'" 
+                                         class="w75"/>
+                                </td>
+                                <td>{{ departamento.nombre }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-4">
+        <div class="card">
+            <div class="card-body">
+                <h3>Usuarios</h3>
+
+                <div class="alert alert-info animated fadeIn fast"
+                    *ngIf="agentes.length === 0">
+                  <p class="mb-0">
+                      No hay usuarios con ese término
+                  </p>
+                </div>
+
+                <div class="table-responsive"
+                    *ngIf="agentes.length > 0">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Foto</th>
+                                <th>Usuario</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let agente of agentes"
+                                class="animated fadeIn fast">
+                                <td>
+                                    <img [src]="agente.img | imagen:'agentes'" 
+                                         class="w75"/>
+                                </td>
+                                <td>
+                                    <a [routerLink]="['/dashboard/agente', agente._id ]">
+                                        {{ agente.nombre }}
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div> 

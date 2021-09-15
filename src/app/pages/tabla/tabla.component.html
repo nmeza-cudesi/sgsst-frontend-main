@@ -1,0 +1,105 @@
+<div class="card-body">
+    <h4 class="card-title">Riesgos</h4>
+    <!--<div class="row mt-4">
+        <div class="col-md-6 col-lg-3 col-xlg-3">
+            <div class="card card-hover">
+                <div class="p-2 rounded bg-light-primary text-center">
+                    <h1 class="fw-light text-primary">2,064</h1>
+                    <h6 class="text-primary">Total Tickets</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3 col-xlg-3">
+            <div class="card card-hover">
+                <div class="p-2 rounded bg-light-warning text-center">
+                    <h1 class="fw-light text-warning">1,738</h1>
+                    <h6 class="text-warning">In Progress</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3 col-xlg-3">
+            <div class="card card-hover">
+                <div class="p-2 rounded bg-light-success text-center">
+                    <h1 class="fw-light text-success">1100</h1>
+                    <h6 class="text-success">Opened</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3 col-xlg-3">
+            <div class="card card-hover">
+                <div class="p-2 rounded bg-light-danger text-center">
+                    <h1 class="fw-light text-danger">964</h1>
+                    <h6 class="text-danger">Closed</h6>
+                </div>
+            </div>
+        </div>
+    </div>-->
+    <div class="row animated fadeIn fast"
+     *ngIf="cargando">
+    <div class="col-12">
+        
+        <div class="alert alert-info text-center">
+          <h4 class="alert-heading">Cargando</h4>
+          <i class="fa fa-spin fa-refresh fa-2x"></i>
+          <p class="mb-0">Por favor espere</p>
+        </div>
+
+    </div>
+</div> 
+    <div class="table-responsive mt-4">
+        <div id="zero_config_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
+            <div class="row">
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <table id="zero_config" class="table table-bordered no-wrap fs-3 dataTable" role="grid"
+                        aria-describedby="zero_config_info">
+                        <thead>
+                            <tr role="row">
+                                <th tabindex="0" rowspan="1" colspan="1" style="width: 0px;">Estado</th>
+                                <th tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1"
+                                    aria-label="Title: activate to sort column ascending" style="width: 0px;">Caso</th>
+                                <!--<th tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1"
+                                    aria-label="ID: activate to sort column ascending" style="width: 0px;">ID</th>-->
+                                <th tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1"
+                                    aria-label="Product: activate to sort column ascending" style="width: 0px;">
+                                    Departamento
+                                </th>
+                                <th tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1"
+                                    aria-label="Created by: activate to sort column ascending" style="width: 0px;">
+                                    Usuario</th>
+                                <th tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1"
+                                    aria-label="Date: activate to sort column ascending" style="width: 0px;">Fecha</th>
+                                    <th tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1"
+                                    aria-label="Date: activate to sort column ascending" style="width: 0px;">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr role="row" class="odd" *ngFor="let riesgo of riesgos">
+                                <td class="sorting_1"><span
+                                        class="badge text-dark font-weight-medium">{{riesgo.estado}}</span></td>
+                                        <td>{{riesgo.descripcion}}</td>
+                                        <td>{{riesgo.departamento.nombre}}</td>
+                                        <td>{{riesgo.usuario.nombre}}</td>
+                                        <td>{{riesgo.fecha_creado}}</td>
+                                        <td>
+                                            <button  
+                                                    class="btn btn-secondary"
+                                                    (click)="actualizar(riesgo)">Actualizar
+                                            </button>
+                                        </td>
+                            </tr>
+                           
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div >
+            <button (click)="cambiarPagina(-10)" class="btn btn-secondary">Anteriores</button>
+            &nbsp;
+            <button (click)="cambiarPagina(10)" class="btn btn-secondary">Siguientes</button>
+        </div>
+    </div>
+</div>
+
